@@ -26,8 +26,8 @@ var shootButton;
 
 function preload(){
     
-    game.load.image('platform','Assets/platform.png');
-    game.load.image('player','Assets/player.png');
+    game.load.image('platform','projects\doodleJump\game\Assets\platform.png'); 
+    game.load.image('player','projects/doodleJump/game/Assets/player.png');
     game.load.image('playerJump','Assets/playerJump.png');
     game.load.image('platformMove','Assets/platformMove.png');
     game.load.image('gameOverScreen','Assets/gameOverScreen.png');
