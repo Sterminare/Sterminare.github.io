@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="/main.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Color Master</title>
+    <style>
+    	* { padding: 0; margin: 0; }
+    	canvas { background: rgb(27, 27, 27); display: block; margin: 0 auto; }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark"  style="background-color: #354661">
+        <div class="container">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMenu">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarMenu">
+            <ul class="navbar-nav">
+              <li><a class="nav-link" href="/">Home</a></li>
+              <li><a class="nav-link active" href="/projects/">Software</a></li>
+              <li><a class="nav-link" href="/hardware/">Hardware</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <hr>
+<canvas id="myCanvas" width="1200" height="600"></canvas>
+
+<script>
+    var canvas = document.getElementById("myCanvas");
+    var ctx = canvas.getContext("2d");
+    var highScore = ["Never played!", 0, 0, 0];
+    var x = canvas.width/2
+    var y = canvas.height/2
+    debug = false;
+    
+    setInterval(draw, 10);
+
+    function draw(){
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        if (debug){
+            drawGrid();
+        }
+        setScreen("intro");
+
+    }
+
+    function setScreen(screen){
+        if(screen == "intro"){
+            ctx.fillStyle = "white";
+            ctx.font = "60px Arial";
+            ctx.fillText("Color Master", 435, 100);
+            ctx.font = "20px Arial";
+            ctx.fillText("How good is your color sense?", 470, 130);
+
+            drawClassicBtn();
+            drawEnduranceBtn();
+            drawTimeTrialBtn();
+            drawVsBtn();
+            drawHighScores();
+        }
+    }
+    
+    function drawGrid(){
+        ctx.beginPath();
+        ctx.moveTo(canvas.width/2, canvas.height);
+        ctx.lineTo(canvas.width/2, 0);
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.moveTo(0, canvas.height/2);
+        ctx.lineTo(canvas.width, canvas.height/2);
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.moveTo(0, canvas.height/4);
+        ctx.lineTo(canvas.width, canvas.height/4);
+        ctx.stroke();
+            
+    }
+
+    function drawClassicBtn(){
+        ctx.beginPath();
+        ctx.rect(125, 200, 200, 200);
+        ctx.fillStyle = "rgba(161, 14, 17, 255)";
+        ctx.fill();
+        ctx.closePath();
+        ctx.fillStyle = "white";
+        ctx.font = "40px Arial";
+        ctx.fillText("Classic", 160, 300);
+        ctx.strokeText("Classic", 160, 300);
+        ctx.fillStyle = "white";
+        ctx.font = "20px Arial";
+        ctx.fillText("Get to 30 points as", 140, 430);
+        ctx.fillText("quickly as you can", 142, 455);
+
+    }
+
+    function drawEnduranceBtn(){
+        ctx.beginPath();
+        ctx.rect(375, 200, 200, 200);
+        ctx.fillStyle = "rgba(235, 215, 40, 255)";
+        ctx.fill();
+        ctx.closePath();
+        ctx.fillStyle = "white";
+        ctx.font = "35px Arial";
+        ctx.fillText("Endurance", 392, 300);
+        ctx.strokeText("Endurance", 392, 300);
+        ctx.fillStyle = "white";
+        ctx.font = "20px Arial";
+        ctx.fillText("Get as far as you can", 380, 430);
+        ctx.fillText("as difficulty increases", 380, 455);
+
+    }
+
+    function drawTimeTrialBtn(){
+        ctx.beginPath();
+        ctx.rect(625, 200, 200, 200);
+        ctx.fillStyle = "rgba(13, 114, 145, 255)";
+        ctx.fill();
+        ctx.closePath();
+        ctx.fillStyle = "white";
+        ctx.font = "35px Arial";
+        ctx.fillText("Time Trial", 650, 300);
+        ctx.strokeText("Time Trial", 650, 300);
+        ctx.fillStyle = "white";
+        ctx.font = "20px Arial";
+        ctx.fillText("You have 30 seconds", 630, 430);
+        ctx.fillText("to get a high score", 645, 455);
+    }
+
+    function  drawVsBtn(){
+        ctx.beginPath();
+        ctx.rect(875, 200, 200, 200);
+        ctx.fillStyle = "rgba(49, 232, 39, 255)";
+        ctx.fill();
+        ctx.closePath();   
+    }
+
+    function drawHighScores(){
+        ctx.fillStyle = "white";
+        ctx.font = "20px Arial";
+        ctx.fillText("Fastest time: " + highScore[0], 115, 500);
+        ctx.fillText("High Score: " + highScore[1], 410, 500);
+        ctx.fillText("High Score: " + highScore[2], 660, 500);
+    }
+
+</script>
+
+</body>
+</html>
