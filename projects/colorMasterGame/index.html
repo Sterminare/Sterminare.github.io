@@ -12,6 +12,7 @@
     </style>
 </head>
 <body>
+    <!-- NAVBAR BEGIN -->
     <nav class="navbar navbar-expand-lg navbar-dark"  style="background-color: #354661">
         <div class="container">
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMenu">
@@ -26,25 +27,36 @@
           </div>
         </div>
       </nav>
+      <!-- NAVBAR BEGIN -->
       <hr>
-<canvas id="myCanvas" width="1200" height="600"></canvas>
+      <!-- debug button --><input id="clickMe" type="button" value="generate new screen" onclick="createGameBoard();" />
+    <li>
+        <input id="button0" type="button" value="button0" onClick="checkButtonChoice(0);" />
+        <input id="button2" type="button" value="button2" onClick="checkButtonChoice(2);" />
+    </li>
+    <li>
+        <input id="button1" type="button" value="button1" onClick="checkButtonChoice(1);" />
+        <input id="button3" type="button" value="button3" onClick="checkButtonChoice(3);" />
+    </li>
+      <canvas id="myCanvas" width="1200" height="600"></canvas>
 
 <script>
     var canvas = document.getElementById("myCanvas");
     var ctx = canvas.getContext("2d");
     var highScore = ["Never played!", 0, 0, 0];
-    var x = canvas.width/2
-    var y = canvas.height/2
     debug = false;
-    
-    setInterval(draw, 10);
+
+    draw();
 
     function draw(){
         ctx.clearRect(0, 0, canvas.width, canvas.height);
+        
+        setScreen("classic");
+        
         if (debug){
             drawGrid();
+            drawButtonLabels();
         }
-        setScreen("intro");
 
     }
 
@@ -61,7 +73,33 @@
             drawTimeTrialBtn();
             drawVsBtn();
             drawHighScores();
+
+        } else if(screen == "classic"){
+            createGameBoard();
         }
+    }
+    
+
+    function createGameBoard(){
+        var shift = 50;
+        var color = [Math.floor(Math.random() * ((+255 - shift) - +0) + 0), Math.floor(Math.random() * ((+255 - shift) - +0) + 0), Math.floor(Math.random() * ((+255 - shift) - +0) + 0)]
+        var mod = Math.round(Math.random()*3);
+        console.log("color: "+color);
+        console.log("shifted color: [ "+color[0]+shift+", "+color[1]+shift+", "+color[2]+shift+" ]")
+        console.log("modified button: button"+mod);
+        drawRect(350, 50, 200, 200, "rgba("+color[0]+", "+color[1]+", "+color[2]+", 255)");
+        drawRect(350, 350, 200, 200, "rgba("+color[0]+", "+color[1]+", "+color[2]+", 255)");
+        drawRect(650, 50, 200, 200, "rgba("+color[0]+", "+color[1]+", "+color[2]+", 255)");
+        drawRect(650, 350, 200, 200, "rgba("+color[0]+", "+color[1]+", "+color[2]+", 255)");
+    }
+
+    function drawButtonLabels(){
+        ctx.font = "30px Arial";
+        ctx.fillStyle = "white"
+        ctx.fillText("button0", 400, 50);
+        ctx.fillText("button1", 400, 350);
+        ctx.fillText("button2", 700, 50);
+        ctx.fillText("button3", 700, 350);
     }
     
     function drawGrid(){
@@ -148,6 +186,13 @@
         ctx.fillText("High Score: " + highScore[2], 660, 500);
     }
 
+    function drawRect(x, y, width, height, color){
+        ctx.beginPath();
+        ctx.rect(x, y, width, height);
+        ctx.fillStyle = color;
+        ctx.fill();
+        ctx.closePath();
+    }
 </script>
 
 </body>
