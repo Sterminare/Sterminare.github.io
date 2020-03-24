@@ -36,20 +36,25 @@
       <canvas id="myCanvas" width="1000" height="500"></canvas>
       
       <script>
+        //==============================================================================================================
+        //==============================================================================================================
         var c = document.getElementById("myCanvas");
         var ctx = c.getContext("2d");
         var posx = 0;
         var boids = [];
         var boidSize = 10;
-        var boidVelocity = 10;
+        var boidVelocity = 2;
+        var boidSight = 100;
+        var colors = ["#6b717e", "#dbebc0", "#c3b299", "#815355", "#523249"]
 
         class Boid {
-          constructor (posx, posy, velocity, heading, color) {
+          constructor (posx, posy, velocity, heading, color, state) {
             this.posx = posx;
             this.posy = posy;
             this.velocity = velocity;
             this.heading = heading;
             this.color = color;
+            this.state = state;
           }
           get deltaPosx() {
             return this.calcDeltaPosx();
@@ -67,28 +72,32 @@
 
         generateBoids(100);
         setInterval(draw, 16); //draw 60fps
-
-
-        
-
-        // const playerBoid = new Boid(500, 250, -10, 5, "#ffffff");
-        // boids.push(playerBoid);
-        
-        function generateBoids(num){
-          for(var i = 0; i < num; i++){
-            boids.push(new Boid(Math.random(0,1000), Math.random(0, 500), boidVelocity, Math.random(0, 360), "#FFFFFF"));
-          }
-        }
-       
+        //==============================================================================================================
+        //==============================================================================================================
         function draw(){
             ctx.clearRect(0, 0, 1000, 500); //clear the screen before every frame
+            detectNearbyBoids(boids[boids.length-1], boids); //each boid looks for boids that are close enough to alter its direction
             updateBoidPosition(boids); //calculate each boid's position
             drawBoids(boids); //draw the boids
-
-
-            
-
         }
+
+        function generateBoids(num){ //generate 'num' amount of boids-1, +1 'playerboid' for a total of num, with random positions and headings
+          for(var i = 0; i < num-1; i++){
+            boids.push(new Boid(Math.random()*1000, Math.random()*500, boidVelocity, Math.random()*360, colors[Math.floor(Math.random()*colors.length)], "neutral"));
+          }
+          boids.push(new Boid(500, 250, boidVelocity, Math.random()*360, "#FF0000", "player"))
+        }
+
+        function detectNearbyBoids(boid, array){
+            for(var i = 0; i < array.length; i++){
+              if(calcDist(boid, array[i]) < boidSight && boid != array[i]){
+                array[i].state = "detected";
+              } else if(boid != array[i]){
+                array[i].state = "neutral";
+              }
+            }
+        }
+
         function updateBoidPosition(array){
           for(var i = 0; i < array.length; i++){ //for every boid in the array
             array[i].posx += array[i].deltaPosx; //boid's x velocity is added to xpos
@@ -105,13 +114,32 @@
             }
           }
         }
+
         function drawBoids(array){
+          drawVision(array[array.length-1]);
           for(var i = 0; i < array.length; i++){
             ctx.beginPath();
-            ctx.fillStyle = array[i].color;
+            if(array[i].state == "neutral"){
+              ctx.fillStyle = array[i].color;
+            } else if(array[i].state == "detected"){
+              ctx.fillStyle = "#FFFF00";
+            } else if(array[i].state == "player"){
+              ctx.fillStyle = "#FF0000";
+            }
             ctx.arc(array[i].posx, array[i].posy, boidSize, 0, 2*Math.PI);
-            ctx.stroke();
+            ctx.fill();
           }
+        }
+
+        function drawVision(boid){
+          ctx.beginPath();
+          ctx.fillStyle = "#5f6361";
+          ctx.arc(boid.posx, boid.posy, boidSight, 0, 2*Math.PI);
+          ctx.fill();
+        }
+
+        function calcDist(boid0, boid1){
+          return dist = Math.sqrt(Math.pow(boid1.posx - boid0.posx, 2) + Math.pow(boid1.posy - boid0.posy, 2));
         }
         </script>
 
