@@ -40,7 +40,8 @@
         var ctx = c.getContext("2d");
         var posx = 0;
         var boids = [];
-        setInterval(draw, 16); //draw 60fps
+        var boidSize = 10;
+        var boidVelocity = 10;
 
         class Boid {
           constructor (posx, posy, velocity, heading, color) {
@@ -54,30 +55,63 @@
             return this.calcDeltaPosx();
           }
           calcDeltaPosx() {
-            return this.velocity*Math.cos(this.heading);
+            return this.velocity*Math.cos((this.heading * Math.PI)/180); //calculate x component of velocity given the heading (converted to radians)
           }
           get deltaPosy() {
             return this.calcDeltaPosy();
           }
           calcDeltaPosy() {
-            return this.velocity*Math.sin(this.heading);
+            return this.velocity*Math.sin((this.heading * Math.PI)/180); //calculate y component of velocity given the heading (converted to radians)
           }
         }
 
-        const playerBoid = new Boid(500, 250, 10, 0, "white");
-        boids.push(playerBoid);
+        generateBoids(100);
+        setInterval(draw, 16); //draw 60fps
+
+
         
+
+        // const playerBoid = new Boid(500, 250, -10, 5, "#ffffff");
+        // boids.push(playerBoid);
+        
+        function generateBoids(num){
+          for(var i = 0; i < num; i++){
+            boids.push(new Boid(Math.random(0,1000), Math.random(0, 500), boidVelocity, Math.random(0, 360), "#FFFFFF"));
+          }
+        }
+       
         function draw(){
-            ctx.clearRect(0, 0, 1000, 500);
-            updateBoidPosition(boids[0]);
+            ctx.clearRect(0, 0, 1000, 500); //clear the screen before every frame
+            updateBoidPosition(boids); //calculate each boid's position
+            drawBoids(boids); //draw the boids
 
 
             
 
         }
-        function updateBoidPosition(boid){
-          boid.posx += boid.deltaPosx;
-          boid.posy += boid.deltaPosy;
+        function updateBoidPosition(array){
+          for(var i = 0; i < array.length; i++){ //for every boid in the array
+            array[i].posx += array[i].deltaPosx; //boid's x velocity is added to xpos
+            if(array[i].posx > 1000){ //if they go out of bounds, wrap around to other side of screen
+              array[i].posx = 0;
+            } else if(array[i].posx < 0){
+              array[i].posx = 1000;
+            }
+            array[i].posy += array[i].deltaPosy; //same as above but for y component
+            if(array[i].posy > 500){
+              array[i].posy = 0;
+            } else if(array[i].posy < 0){
+              array[i].posy = 500;
+            }
+          }
+        }
+        function drawBoids(array){
+          for(var i = 0; i < array.length; i++){
+            ctx.beginPath();
+            ctx.fillStyle = array[i].color;
+            ctx.arc(array[i].posx, array[i].posy, boidSize, 0, 2*Math.PI);
+            ctx.stroke();
+          }
         }
         </script>
 
