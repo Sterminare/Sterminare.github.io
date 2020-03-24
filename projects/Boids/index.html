@@ -39,14 +39,45 @@
         var c = document.getElementById("myCanvas");
         var ctx = c.getContext("2d");
         var posx = 0;
-        setInterval(draw, 16); //draw 30fps
+        var boids = [];
+        setInterval(draw, 16); //draw 60fps
 
-        function draw(){
-            ctx.clearRect(0,0,canvas.width, canvas.height);
-            ctx.fillStyle = "#FF0000";
-            ctx.fillRect(posx, 0, 200, 200);
-            posx += 10
+        class Boid {
+          constructor (posx, posy, velocity, heading, color) {
+            this.posx = posx;
+            this.posy = posy;
+            this.velocity = velocity;
+            this.heading = heading;
+            this.color = color;
+          }
+          get deltaPosx() {
+            return this.calcDeltaPosx();
+          }
+          calcDeltaPosx() {
+            return this.velocity*Math.cos(this.heading);
+          }
+          get deltaPosy() {
+            return this.calcDeltaPosy();
+          }
+          calcDeltaPosy() {
+            return this.velocity*Math.sin(this.heading);
+          }
         }
 
+        const playerBoid = new Boid(500, 250, 10, 0, "white");
+        boids.push(playerBoid);
+        
+        function draw(){
+            ctx.clearRect(0, 0, 1000, 500);
+            updateBoidPosition(boids[0]);
+
+
+            
+
+        }
+        function updateBoidPosition(boid){
+          boid.posx += boid.deltaPosx;
+          boid.posy += boid.deltaPosy;
+        }
         </script>
 

@@ -44,11 +44,11 @@
             this.color = color;
           }
         }
-        
-        var body0 = new Body(500, 300, 100, 100, "#ff0000");
-        var body1 = new Body(body1.xpos, 300, 0, 100, "#0000ff");
 
-        var intervalID = window.setInterval(draw, 250); // 60fps: 16.666ms || 30fps: 33.333
+        var body0 = new Body(500, 300, 100, 100, "#ff0000");
+        var body1 = new Body(250, 300, 0, 100, "#0000ff");
+
+        var intervalID = window.setInterval(draw, 16.666); // 60fps: 16.666ms || 30fps: 33.333
         
         function draw(){
           
