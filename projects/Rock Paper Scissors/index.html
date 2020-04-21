@@ -38,22 +38,138 @@
       <script>
         var c = document.getElementById("myCanvas");
         var ctx = c.getContext("2d");
-        var posx = 100;
-        draw();
+        var posx = 100;        
+        var debug = true;
+        var choices = ["rock", "paper", "scissors"];
+        var playerChoice;
+        var CPUchoice;
+
+        document.addEventListener("keypress", keyPressHandler, false); //when a key is pressed, run keyPressHandler().
         
-        function draw(){
-            ctx.fillStyle = "#FFFFFF";
-            ctx.fillRect(posx, 100, 750, 250);
+        setScreen("start");
+        
+        if(debug){
+          ctx.font = "10px Arial";
+          ctx.fillStyle = "white";
+          ctx.fillText("If you can read this, my program didn't crash (yay).", 10, 50); 
+        }
 
-            var btn = document.createElement("move");   // Create a <button> element
-            btn.innerHTML = "move";                   // Insert text
-            document.body.appendChild(btn);               // Append <button> to <body> 
+        function setScreen(screen){
+          currentScreen = screen;
+          if(screen == "start"){
+            drawStartScreen();
+          } else
+          if(screen == "game"){
+            drawGameScreen();
+          }
+        }
 
+        function keyPressHandler(e){ //this function checks what key was pressed, then sends this information to the rest of the program.
+          if(e.key == "1"){
+            if(currentScreen == "start"){
+              console.log("1 pressed, game started");
+              setScreen("game");
+            } else if(currentScreen == "game"){
+              console.log("1 pressed, player chose rock");
+              drawChoice("player", choices[0]);
+            }
+          } else if(e.key == "2"){
+            if(currentScreen == "game"){
+              console.log("2 pressed, player chose paper");
+              drawChoice("player", choices[1]);
+            }
+          } else if(e.key == "3"){
+            if(currentScreen == "game"){
+              console.log("3 pressed, player chose scissors");
+              drawChoice("player", choices[2]);
+            }
+          }
+        }
+
+        function drawStartScreen(){
+        ctx.clearRect(0, 0, c.width, c.height);
+        ctx.font = "30px Arial";
+        ctx.fillStyle = "white";
+        ctx.fillText("Press 1 to play", 10, 100);
+        }
+
+        function drawGameScreen(){
+          ctx.clearRect(0, 0, c.width, c.height);
+          drawGameBoard();
 
         }
 
-        onEvent("move", "click", function(){
-            posx += 10;
-        });  
+        function drawGameBoard(){
+          ctx.font = "30px Arial";
+          ctx.fillStyle = "white";
+          ctx.fillText("Player", 333, 100);
+          ctx.fillText("CPU", 600, 100);
+          ctx.font = "20px Arial";
+          ctx.fillText("Press 1 to play rock         Press 2 to play paper         Press 3 to play scissors", 170, 400);
+        }
+
+        function drawChoice(artist, choice){
+          ctx.font = "50px Arial";
+          ctx.fillStyle = "white";
+          if(artist == "player"){
+            if(choice == "rock"){
+              ctx.fillText("rock", 333, 250);
+              playerChoice = "rock";
+            } else if(choice == "paper"){
+              ctx.fillText("paper", 320, 250);
+              playerChoice = "paper";
+            } else if(choice == "scissors"){
+              ctx.fillText("scissors", 280, 250);
+              playerChoice = "scissors";
+            }
+            makeCPUchoice();
+          } else if(artist == "CPU"){
+            if(choice == "rock"){
+              ctx.fillText("rock", 583, 250);
+              CPUchoice = "rock";
+            } else if(choice == "paper"){
+              ctx.fillText("paper", 570, 250);
+              CPUchoice = "paper";
+            } else if(choice == "scissors"){
+              ctx.fillText("scissors", 550, 250);
+              CPUchoice = "scissors";
+            }
+          }
+          printResult();
+        }
+
+        function makeCPUchoice(){
+          var n = Math.floor(Math.random()*3);
+          drawChoice("CPU", choices[n]);
+        }
+
+        function printResult(){
+          ctx.clearRect(0, 300, c.width, 200);
+          ctx.font = "70px Arial";
+          ctx.fillStyle = "white";
+          if(playerChoice == CPUchoice){
+            ctx.fillText("It's a tie!", 380, 400);
+          } else if(playerChoice == "scissors"){
+            if(CPUchoice == "paper"){
+              ctx.fillText("Player wins!", 380, 400);
+            } else if(CPUchoice == "rock"){
+              ctx.fillText("CPU wins!", 380, 400);
+            }
+          } else if(playerChoice == "paper"){
+            if(CPUchoice == "scissors"){
+              ctx.fillText("CPU wins!", 380, 400);
+            } else if(CPUchoice == "rock"){
+              ctx.fillText("Player wins!", 380, 400);
+            }
+          } else if(playerChoice == "rock"){
+            if(CPUchoice == "scissors"){
+              ctx.fillText("Player wins!", 380, 400);
+            } else if(CPUchoice == "paper"){
+              ctx.fillText("CPU wins!", 380, 400);
+            }
+          }
+          currentScreen = "results";
+        }
         </script>
+
 

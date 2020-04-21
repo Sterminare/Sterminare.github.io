@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="/main.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Boids
+    </title>
+    <style>
+    	* { padding: 0; margin: 0; }
+    	canvas { background: rgb(27, 27, 27); display: block; margin: 0 auto; }
+    </style>
+</head>
+<body>
+    <!-- NAVBAR BEGIN -->
+    <nav class="navbar navbar-expand-lg navbar-dark"  style="background-color: #354661">
+        <div class="container">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMenu">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarMenu">
+            <ul class="navbar-nav">
+              <li><a class="nav-link" href="/">Home</a></li>
+              <li><a class="nav-link active" href="/projects/">Software</a></li>
+              <li><a class="nav-link" href="/hardware/">Hardware</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <!-- NAVBAR END -->
+      <hr>
+      
+
+      
+      <canvas id="myCanvas" width="1000" height="500"></canvas>
+      
+      <script>
+        //==============================================================================================================
+        //==============================================================================================================
+        var c = document.getElementById("myCanvas");
+        var ctx = c.getContext("2d");
+
+        var cannonHeight = 250;
+        
+
+        class Ball { //define class 'Ball' to keep track of the ball's x position, y position, and velocity
+          constructor (posx, posy, velocity,) {
+            this.posx = posx;
+            this.posy = posy;
+            this.velocity = velocity;
+          }
+        }      
+
+
+
+        ball = new Ball(cannonHeight, 250, 10); //create ball with characteristics
+
+        draw();
+
+        function draw(){
+            for(var i = 0; i < 10; i++){
+                drawBall(i);
+            }
+        }
+
+        function drawBall(t){
+            
+            var g = 9.8; //acceleration due to gravity (m/s^2)
+            
+            Ball.posx = Ball.posx*t;
+            Ball.posy = cannonHeight + Ball.posy*t + .5*g*t**2;
+
+            console.log(Ball.posy);
+            
+        }
+        </script>
+

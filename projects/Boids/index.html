@@ -76,7 +76,7 @@
         //==============================================================================================================
         function draw(){
             ctx.clearRect(0, 0, 1000, 500); //clear the screen before every frame
-            detectNearbyBoids(boids[boids.length-1], boids); //each boid looks for boids that are close enough to alter its direction
+           // detectNearbyBoids(boids[boids.length-1], boids); //each boid looks for boids that are close enough to alter its direction   
             updateBoidPosition(boids); //calculate each boid's position
             drawBoids(boids); //draw the boids
         }
@@ -89,17 +89,24 @@
         }
 
         function detectNearbyBoids(boid, array){
+          var count = 0;
+          var pressureTotal = 0;
+          var pressure = 0;
             for(var i = 0; i < array.length; i++){
-              if(calcDist(boid, array[i]) < boidSight && boid != array[i]){
-                array[i].state = "detected";
+              if(calcDist(boid, array[i]) < boidSight && boid != array[i]){ //boids within 150 units that arent the target boid
+                array[i].state = "detected"; //highlight nearby boids
+                count++; //keep track of how many boids are nearby
+                pressureTotal += array[i].heading; //add together the heading of all nearby boids
               } else if(boid != array[i]){
                 array[i].state = "neutral";
               }
             }
+            return pressureTotal / count; //average heading of all nearby boids
         }
 
         function updateBoidPosition(array){
           for(var i = 0; i < array.length; i++){ //for every boid in the array
+            var pressure = detectNearbyBoids(boids[boids.length-1], boids);
             array[i].posx += array[i].deltaPosx; //boid's x velocity is added to xpos
             if(array[i].posx > 1000){ //if they go out of bounds, wrap around to other side of screen
               array[i].posx = 0;
