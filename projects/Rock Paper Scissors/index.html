@@ -39,7 +39,7 @@
         var c = document.getElementById("myCanvas");
         var ctx = c.getContext("2d");
         var posx = 100;        
-        var debug = true;
+        var debug = false;
         var choices = ["rock", "paper", "scissors"];
         var playerChoice;
         var CPUchoice;
@@ -72,6 +72,8 @@
             } else if(currentScreen == "game"){
               console.log("1 pressed, player chose rock");
               drawChoice("player", choices[0]);
+            } else if(currentScreen == "results"){
+              setScreen("start");
             }
           } else if(e.key == "2"){
             if(currentScreen == "game"){
@@ -169,6 +171,7 @@
             }
           }
           currentScreen = "results";
+          ctx.fillText("Press 1 to play again", 250, 470);
         }
         </script>
 
