@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="/main.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Inverse Kinematics</title>
+    <style>
+    	* { padding: 0; margin: 0; }
+    	canvas { background: rgb(27, 27, 27); display: block; margin: 0 auto; }
+    </style>
+</head>
+<body>
+    <!-- NAVBAR BEGIN -->
+    <nav class="navbar navbar-expand-lg navbar-dark"  style="background-color: #354661">
+        <div class="container">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMenu">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarMenu">
+            <ul class="navbar-nav">
+              <li><a class="nav-link" href="/">Home</a></li>
+              <li><a class="nav-link active" href="/projects/">Software</a></li>
+              <li><a class="nav-link" href="/hardware/">Hardware</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <!-- NAVBAR END -->
+      <hr>
+      <div class="slidecontainer">
+        <input type="range" min="0" max="360" value="30" class="slider" id="joint0">
+      </div>
+      <div class="slidecontainer">
+        <input type="range" min="0" max="360" value="150" class="slider" id="joint1">
+      </div>
+      
+      <canvas id="canvas" width="1000" height="500" style="border:1px solid #ffffff;"></canvas>
+    <script>
+        var c = document.getElementById("canvas");
+        var ctx = c.getContext("2d");
+
+        var slider0 = document.getElementById("joint0");
+        var slider1 = document.getElementById("joint1");
+
+        class Segment {
+            constructor(startPoint, length, angle, parent, child) {
+                this.startPoint = startPoint;
+                this.length = length;
+                this.angle = angle;
+                this.parent = parent;
+                this.child = child;
+            }
+            get endPoint() {
+              return [this.startPoint[0] + this.length * Math.cos((this.angle * Math.PI) / 180), this.startPoint[1] + this.length * Math.sin((this.angle * Math.PI) / 180)];
+            }
+            get parent_endPoint() {
+              return [this.parent.endPoint[0], this.parent.endPoint[1]];
+            }
+            assignParents() {
+              if(this.parent){
+                this.startPoint = this.parent.endPoint;
+              }
+            }
+        }
+
+        upperSegment = new Segment([400, 100], 200, 45, 0, 0);
+        lowerSegment = new Segment(0, 200, 90, upperSegment, 0);
+
+        lowerSegment.assignParents();
+
+        drawSegment(upperSegment);
+        drawSegment(lowerSegment);
+        
+        function drawSegment(segment){
+            ctx.strokeStyle = "#FFFFFF";
+            ctx.lineWidth = "3";
+            ctx.beginPath();
+            if(segment.startPoint){
+              ctx.moveTo(segment.startPoint[0], segment.startPoint[1]);
+            } else {
+              ctx.moveTo(segment.parent_endPoint[0], segment.parent_endPoint[1])
+            }
+            ctx.lineTo(segment.endPoint[0], segment.endPoint[1]);
+            ctx.stroke();
+        }
+
+
+    </script>
+</body>
+</html>
