@@ -29,14 +29,15 @@
       </nav>
       <!-- NAVBAR END -->
       <hr>
-      <div class="slidecontainer">
+      <!-- <div class="slidecontainer">
         <input type="range" min="0" max="360" value="30" class="slider" id="joint0">
       </div>
       <div class="slidecontainer">
         <input type="range" min="0" max="360" value="150" class="slider" id="joint1">
-      </div>
+      </div> -->
       
       <canvas id="canvas" width="1000" height="500" style="border:1px solid #ffffff;"></canvas>
+    <script src="circles.js"></script>
     <script>
         var c = document.getElementById("canvas");
         var ctx = c.getContext("2d");
@@ -44,13 +45,19 @@
         var slider0 = document.getElementById("joint0");
         var slider1 = document.getElementById("joint1");
 
+        var target = [500, 400];
+
+        //angles of [shoulder, elbow]; Shoulder is relative to X-axis. Elbow is relative to shoulder.
+        var angles = [0, 0]
+
         class Segment {
-            constructor(startPoint, length, angle, parent, child) {
+            constructor(startPoint, length, angle, parent, child, angleLimits) {
                 this.startPoint = startPoint;
                 this.length = length;
                 this.angle = angle;
                 this.parent = parent;
                 this.child = child;
+                this.angleLimits = angleLimits;
             }
             get endPoint() {
               return [this.startPoint[0] + this.length * Math.cos((this.angle * Math.PI) / 180), this.startPoint[1] + this.length * Math.sin((this.angle * Math.PI) / 180)];
@@ -65,25 +72,22 @@
             }
         }
 
-        upperSegment = new Segment([400, 100], 200, 45, 0, 0);
-        lowerSegment = new Segment(0, 200, 90, upperSegment, 0);
+        upperSegment = new Segment([500, 100], 200, 47, 0, 0, [-360, 360]);
+        lowerSegment = new Segment(0, 200, 138, upperSegment, 0, [-360, 360]);
+
+
+      calculateTriangle();
 
         lowerSegment.assignParents();
 
-        drawSegment(upperSegment);
-        drawSegment(lowerSegment);
-        
-        function drawSegment(segment){
-            ctx.strokeStyle = "#FFFFFF";
-            ctx.lineWidth = "3";
-            ctx.beginPath();
-            if(segment.startPoint){
-              ctx.moveTo(segment.startPoint[0], segment.startPoint[1]);
-            } else {
-              ctx.moveTo(segment.parent_endPoint[0], segment.parent_endPoint[1])
-            }
-            ctx.lineTo(segment.endPoint[0], segment.endPoint[1]);
-            ctx.stroke();
+        drawLeg();
+
+        //redraws the entire leg- upper and lower segment, and target point.
+        function drawLeg(){
+          ctx.clearRect(0, 0, 1000, 500);
+          drawSegment(upperSegment);
+          drawSegment(lowerSegment);
+          drawCircle(target, 5, "#ffff00", true);
         }
 
 
