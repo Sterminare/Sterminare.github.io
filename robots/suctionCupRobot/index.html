@@ -5,11 +5,11 @@
         <meta charset="utf-8">
         <link rel="stylesheet" href="/main.css">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Home</title>
+        <title>Robots - Suction Cup</title>
     </head>
     <body>
       <!-- NAVBAR BEGIN -->
-        <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #354661;">
+        <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #354661">
             <div class="container">
               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMenu">
                 <span class="navbar-toggler-icon"></span>
@@ -25,47 +25,26 @@
             </div>
           </nav>
         <!-- NAVBAR END -->
-        <h1>Robots</h1>
-           <hr>
-
-           <div class="container">
-            <img src="\hardware\images\hexapodThumb.jpg" alt="Hexapod" class="image" style="width:100%">
-            <div class="middle" onclick="navigate('/robots/hexapod')">
-              <div class="text">Click to view Hexapod</div>
+        <div class="row">
+          <div class="leftcolumn">
+            <!-- <div class="card">
+              <h2>Hexapod</h2>
+              <img src="\hardware\images\hexapodCover.jpg" alt="Goddard Outside" width=70% style="float:left; padding:10px" padding="10px">
+              <p style="float:right">placeholder is a six-legged Hexapod robot controlled wirelessly by an ESP32 from an android app.</p>
+            </div> -->
+            <div class="card">
+              <h2>Suction Cup Robot</h2>   
+              <p style="float:right; text-indent:50px each-line"><img src="\hardware\images\suctionCupRobotCover.jpg" alt="Cover" width=70% style="float:left; padding:10px" padding="10px">The suction cup robot was a quick project meant as a proof of concept. Originally I wanted to make a bot that could climb a window, but eventually aimed to get it to walk across a surface.<br/><br/>It has a servo-controlled suction cup on each foot, that could then swing around. The idea was to have it suction to the ground with one leg, then swing and reach forward, then release and grab with the other suction cup, allowing it to walk across a smooth surface.<br/><br/>It was made with 3D printed parts, SG90 servos, and two syringes.</p>
             </div>
           </div>
-
-          <div class="container">
-            <img src="\hardware\images\suctionCupRobotThumb.jpg" alt="Suction Cup Robot" class="image" style="width:100%">
-            <div class="middle" onclick="navigate('/robots/suctionCupRobot')">
-              <div class="text">Click to view Suction Cup</div>
+          <div class="rightcolumn">
+            <div class="card">
+              <h2>Suction Cup Demonstration</h2>
+              <img src="\hardware\images\suctionCupRobotSwing.gif" alt="Swinging" width=100%>
+              <p>The robot is controlled by an Arduino uno.</p>
             </div>
           </div>
-
-           <div class="container">
-            <img src="\hardware\images\goddard_cover.jpg" alt="Goddard" class="image" style="width:100%">
-            <div class="middle" onclick="navigate('robots/f1d0')">
-              <div class="text">Click to view Goddard</div>
-            </div>
-          </div>
-
-          <div class="container">
-            <img src="\hardware\images\pterry_0.jpg" alt="Pterry" class="image" style="width:100%">
-            <div class="middle" onclick="navigate('/robots/pterry')">
-              <div class="text">Click to view Pterry</div>
-            </div>
-          </div>
-
-          <div class="container">
-            <img src="\hardware\images\carry.jpg" alt="Carry" class="image" style="width:100%">
-            <div class="middle" onclick="navigate('/robots/carry')">
-              <div class="text">Click to view Carry</div>
-            </div>
-          </div>
-
-          
-
-
+        </div>
         
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
