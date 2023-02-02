@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="/main.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Robots - Goddard</title>
+    </head>
+    <body>
+      <!-- NAVBAR BEGIN -->
+        <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #354661">
+            <div class="container">
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMenu">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarMenu">
+                <ul class="navbar-nav">
+                  <li><a class="nav-link active" href="/">Robots</a></li>
+                  <li><a class="nav-link" href="/projects/">Software</a></li>
+                  <li><a class="nav-link" href="/hardware/">3D Printers</a></li>
+                  <li><a class="nav-link" href="/gallery/">Gallery</a></li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+        <!-- NAVBAR END -->
+        <div class="row">
+          <!-- <div class="leftcolumn"> -->
+            <div class="card">
+              <h2>Update - 1/9/2021</h2>
+              <p><img src="\hardware\images\goddard_1_9_21.jpg" alt="Goddard Outside" width=50% style="float:left; padding:5px" padding="5px">
+                <img src="\hardware\images\goddard_motherboard.png" alt="Goddard Electronics" width=50% style="float:right; padding:5px" padding="5px"></p>
+              <p style="float:right">The electronics have been completely reworked (again...), this time neatening it further by consolidating as many components as possible into a central 'motherboard', with plugs to make things easy to remove and replace. <br> <br> The rest of the legs have been printed and assembled. The shoulder joints have been redone, as well as how they connect to the hip, so it is no longer glued together and can be dissasembled if anything needs to be replaced. They've also been reinforced by the steel screws holding them together. Also, the head has 'ears' added, that house an RGB LED and a red LED, which will be used for mode indication and low battery warning.</p>
+              
+              <p>Also, I was able to get bluetooth communication working, so here is a video of controlling one leg with keyboard presses.<iframe width="600" height="400"
+                src="https://www.youtube.com/embed/VQ08xqqrLRU">
+                </iframe></p>
+            </div>
+            <div class="card">
+              <h2>Update - 10/20/2020</h2>
+              <p><img src="\hardware\images\goddard_10_20.jpg" alt="Goddard Outside" width=50% style="float:left; padding:5px" padding="5px">
+                <img src="\hardware\images\goddard_electronics.jpg" alt="Goddard Electronics" width=50% style="float:right; padding:5px" padding="5px"></p>
+              <p style="float:right">Goddard has received some major changes over the past few months- including the (temporary) amputation of all its legs. Due to some issues with the previous design, the legs were either becoming disconnected from the servos, or had so much play that it was not possible to continue without a redesign. So, I've redesigned the legs, and will be reprinting them all as soon as I validate the first one (the front left leg). </br></br> Additionally, the electronics have been completely redone. The previous arrangement was only ever meant to be temporary, but this time around I've sorted out the electronics (mostly) before continuing the mechanical build. In my haste to get a functioning proof of concept, the wiring has gotten pretty messy, so I intend to use some connectors and make a 'motherboard' for everything to plug into to keep it modular and neat. </br></br> My focus lately has been on the programming side. The ESP32 is programmed as an Arduino board, which means it is written in Arduino in the Arduino IDE, though I opted to use PlatformIO in Visual Studio Code. So far, you can see the basic battery information screen, successfully displaying the battery voltage (0-4095). I also have the PCA9685 working, and currently the servos are able to be controlled by the program. The next stage will be developing an inverse kinematic model, which will make creating a gait a lot more straight forward. Then, it just needs 3 more legs, and it will be ready to take some steps.</p>
+              
+              <p>The first tests on this leg are promising<iframe width="600" height="400"
+                src="https://www.youtube.com/embed/zxcoVT6BfLw">
+                </iframe></p>
+            </div>
+          <!-- </div> -->
+          <div class="rightcolumn">
+        </div>
+        <div class="row">
+          <div class="leftcolumn">
+            <div class="card">
+              <h2>Goddard the Robot Dog</h2>
+              <img src="\hardware\images\f1d0_4.jpg" alt="Goddard Outside" width=100% style="float:left; padding:10px" padding="10px">
+              <p style="float:right">Goddard is a robot dog that I designed in Fusion 360, 3D printed on my homebuilt printers, and am currently programming myself. It is about 18in long and weighs about 6lbs. It runs on an Arduino Uno.</p>
+            </div>
+            <div class="card">
+              <h2>The CAD</h2>   
+              <p style="float:right; text-indent:50px each-line"><img src="\hardware\images\f1d0_0.png" alt="Goddard CAD" width=50% style="float:left; padding:10px" padding="10px">To design Goddard, I used Fusion 360 because it is very powerful and I am competent at using it. I knew that with the relatively small servos that I was going to use, I couldn't make it too large. However I also made sure to make it big enough to house all the necessary electronics. Overall I am happy with the dimensions, it is about the same size as my cat.<br /><br />A key design decision was to make sure that the servos were not at all structural and only serve to move the joints. This protects the servos from damage from physical shocks, like the feet repeatedly stepping on the ground. That is why each of the three axes of rotation are supported on both sides by 608zz bearings.<br /><br />       Additionally, to increase the speed at which the legs can swing, the servo that controls the 'knee' is high up on the leg, connected to the foreleg by a parallel linkage. This keeps the mass of the foreleg very low, so it can be driven quickly which will increase the speed of the gait.</p>
+            </div>
+          </div>
+          <div class="rightcolumn">
+            <div class="card">
+              <h2>More</h2>
+              <img src="\hardware\images\f1d0_5.jpg" alt="Goddard Sitting" width=100%>
+              <p>Goddard's legs have three degrees of movement each: They can swing forward and backward at the knee and at the hip, and also swing in and out at the hip. This allows it to turn in place, and tilt its body.</p>
+              <img src="\hardware\images\f1d0_3.jpg" alt="Early Prototype" width=100%>
+              <p>This is an early prototype of Goddard. The white material was less expensive so I made first prototypes out of it, because they would need to be reprinted anyway.</p>
+            </div>
+          </div>
+        </div>
+        
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

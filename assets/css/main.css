@@ -2705,28 +2705,28 @@ input, select, textarea {
 						margin-bottom: 0;
 					}
 
-			.tiles article.style1 > .image:before {
+			.tiles article.clifford > .image:before {
 				background-color: #f2849e;
 			}
 
-			.tiles article.style2 > .image:before {
+			.tiles article.goddard > .image:before {
 				background-color: #7ecaf6;
 			}
 
-			.tiles article.style3 > .image:before {
+			.tiles article.hexapod > .image:before {
 				background-color: #7bd0c1;
 			}
 
-			.tiles article.style4 > .image:before {
-				background-color: #c75b9b;
+			.tiles article.pterry > .image:before {
+				background-color: #c5c75b;
 			}
 
-			.tiles article.style5 > .image:before {
-				background-color: #ae85ca;
+			.tiles article.carry > .image:before {
+				background-color: #e6a139;
 			}
 
-			.tiles article.style6 > .image:before {
-				background-color: #8499e7;
+			.tiles article.watch > .image:before {
+				background-color: #3d404e;
 			}
 
 			body:not(.is-touch) .tiles article:hover > .image {

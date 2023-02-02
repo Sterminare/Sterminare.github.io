@@ -1,0 +1,120 @@
+<!DOCTYPE HTML>
+<!--
+	Phantom by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Clifford</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<div class="inner">
+
+							<!-- Logo -->
+								<a href="index.html" class="logo">
+									<span class="symbol"><img src="images/logo.svg" alt="" /></span><span class="title">sterminare.github.io</span>
+								</a>
+
+							<!-- Nav -->
+								<nav>
+									<ul>
+										<li><a href="#menu">Menu</a></li>
+									</ul>
+								</nav>
+
+						</div>
+					</header>
+
+				<!-- Menu -->
+					<nav id="menu">
+						<h2>Menu</h2>
+						<ul>
+							<li><a href="index.html">Home</a></li>
+							<li><a href="generic.html">Ipsum veroeros</a></li>
+							<li><a href="generic.html">Tempus etiam</a></li>
+							<li><a href="generic.html">Consequat dolor</a></li>
+							<li><a href="elements.html">Elements</a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+							<h1>Robot Dog V2 - "Clifford"</h1>
+							<span class="image main"><img src="images/clifford/clifford_header.png" alt="" /></span>
+							<iframe width="585" height="315" src="https://www.youtube.com/embed/g7d2IzCZoEQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+							<iframe width="585" height="315" src="https://www.youtube.com/embed/kb093glI7lM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+							<span class="image main"><img src="images/clifford/img2.png" alt="" /></span>
+							<h2>What's different</h2>
+							<p>Clifford is the second interation of my robot dog project. Compared to the first version, "Goddard", Clifford is significantly more compact and overall smaller, making it relatively stronger. It uses a linkage for actuating the lower limb of each leg, which relocates the heavy servo to the body, where it is essentially stationary, rather than being in the elbow, which keeps the legs much lighter.</p>
+							<h2>design and construction</h2>
+							<p>With 3D printing as the primary mode of construction, all of the parts were carefully designed with additive manufacturing in mind. All of the parts can be 3D printed on an FDM printer without supports and with minimal post-processing, and use brass heat-set threaded inserts for fastening. These put less stress on the plastic and provides a thread more resistant to stripping, which allows it to be dissasembled/reassembled repeatedly throughout the design process and to be held together more tightly than with plastic threads.</p>
+							<p>The body is designed to be as compact as possible while housing all 12 servos and remaining sufficiently stiff. For ease of printing, the body is split into several smaller parts rather than one large print. To keep it stiff, two pieces of brass tubing run the entire length of the body, and provide stiffness as well as an anchoring point to the individual body components. This was very effective and there is little to no flex in the body, and adds just a few dozen grams to the weight of the robot.</p>
+							<span class="image main"><img src="images/clifford/img1.png" alt="" /></span>
+							<h2>electronics and programming</h2>
+							<p>The robot is built around an ESP32 MCU with a custom PCB for distributing power to all of the servos. It uses a standard RC transmitter and receiver for remote control and is powered by a 2S LiPo. All the electronics are housed on top of the body, which will be enclosed once it's in its final state.</p>
+						</div>
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<div class="inner">
+							<section>
+								<h2>Get in touch</h2>
+								<form method="post" action="#">
+									<div class="fields">
+										<div class="field half">
+											<input type="text" name="name" id="name" placeholder="Name" />
+										</div>
+										<div class="field half">
+											<input type="email" name="email" id="email" placeholder="Email" />
+										</div>
+										<div class="field">
+											<textarea name="message" id="message" placeholder="Message"></textarea>
+										</div>
+									</div>
+									<ul class="actions">
+										<li><input type="submit" value="Send" class="primary" /></li>
+									</ul>
+								</form>
+							</section>
+							<section>
+								<h2>Follow</h2>
+								<ul class="icons">
+									<li><a href="#" class="icon brands style2 fa-twitter"><span class="label">Twitter</span></a></li>
+									<li><a href="#" class="icon brands style2 fa-facebook-f"><span class="label">Facebook</span></a></li>
+									<li><a href="#" class="icon brands style2 fa-instagram"><span class="label">Instagram</span></a></li>
+									<li><a href="#" class="icon brands style2 fa-dribbble"><span class="label">Dribbble</span></a></li>
+									<li><a href="#" class="icon brands style2 fa-github"><span class="label">GitHub</span></a></li>
+									<li><a href="#" class="icon brands style2 fa-500px"><span class="label">500px</span></a></li>
+									<li><a href="#" class="icon solid style2 fa-phone"><span class="label">Phone</span></a></li>
+									<li><a href="#" class="icon solid style2 fa-envelope"><span class="label">Email</span></a></li>
+								</ul>
+							</section>
+							<ul class="copyright">
+								<li>&copy; Untitled. All rights reserved</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+							</ul>
+						</div>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
