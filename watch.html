@@ -1,61 +1,74 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
+<!--
+	Phantom by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
 <html>
-    <head>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-        <meta charset="utf-8">
-        <link rel="stylesheet" href="/main.css">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Robots - 5700 Joules, PCB Wristwatch</title>
-    </head>
-    <body>
-      <!-- NAVBAR BEGIN -->
-        <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #354661">
-            <div class="container">
-              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMenu">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarMenu">
-                <ul class="navbar-nav">
-                  <li><a class="nav-link active" href="/">Robots</a></li>
-                  <li><a class="nav-link" href="/projects/">Software</a></li>
-                  <li><a class="nav-link" href="/hardware/">3D Printers</a></li>
-                  <li><a class="nav-link" href="/gallery/">Gallery</a></li>
-                </ul>
-              </div>
-            </div>
-          </nav>
-        <!-- NAVBAR END -->
-        <div class="row">
-          <!-- <div class="leftcolumn"> -->
-            <div class="card">
-              <h2>"5700 Joules", PCB Watch</h2>
-              <p><img src="\hardware\images\pcbwatch\front.jpg" alt="front" width=33% style="float:left; padding:5px" padding="5px"> <img src="\hardware\images\pcbwatch\back.jpg" alt="back" width=33% style="float:left; padding:5px" padding="5px"><img src="\hardware\images\pcbwatch\size.jpg" alt="size" width=33% style="float:left; padding:5px" padding="5px">
-                <p style="float:right">Inspired by 
-                    <a href="https://www.instructables.com/MechWatch-a-Custom-Digital-Watch/">Mechlabs' MechWatch</a>; which in turn seems to be heavily inspired by the <a href="http://makerbot.wikidot.com/makerbot-watch">Makerbot Watch</a>
+	<head>
+		<title>Generic</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+		<!-- Wrapper -->
+			<div id="wrapper">
 
-                </br></br>I really liked the idea of having a portable project that I could show off to people I meet, and also have been dying to get a neat watch (was going to get a casio calculator watch.) Had the idea for a PCB watch, looked it up, stumbled upon the mechwatch, and opened my EDA.
-            </br></br>Runs on ATTINY85 which controls 24 + 4 LEDs- the outer ring displays the hour, the inner ring displays the nearest 5 minutes, and the four central LEDs display the minutes past the nearest 5.
-                    
-        </br></br>I've just gotten it assembled and still need to program it (which is the hard part for me). But I have a prototype on breadboard as a proof of concept so I'm about 75% sure it'll work eventually.
-                    
-    </br></br>While all other PCB watches I've seen are blank until you press a button to momentarily display the time, I much prefer the idea of an always-on watch so I don't have to interact with a button to tell the time. So I'm trading a battery life of months for a battery life of approx 16 hours. But so be it.
-                    
-</br></br>"5700 Joules" is a reference to vintage watches printing "21/etc Jewels" which indicated higher end watches (until jewels became trivially inexpensive, but anyway.) It runs on a lipo battery at 3.7V, with a 430mAh capacity, for 1.591 Wh of stored energy, which is ~5700 joules.
-                    
-</br></br>Case is 3D printed on my Voron 2.4 but eventually I want to resin print in translucent black resin for smoothness and so you can see the circuits inside. Takes standard 22mm quick-release watchbands. 
-                    
-</br></br>White LEDs for hour, blue LEDs for minutes. Integrates battery charging circuit on the backside, charges on 5V/USB from magnetic contacts in the bottom of the case.</p>
-            </div>
+				<!-- Header -->
+					<header id="header">
+						<div class="inner">
 
-            <div class="card">
-              <p><img src="\hardware\images\pcbwatch/watch.jpg" alt="in case" width=33% style="float:left; padding:5px" padding="5px"><img src="\hardware\images\pcbwatch/pcb.png" alt="in case" width=33% style="float:left; padding:5px" padding="5px"><img src="\hardware\images\pcbwatch/schem.png" alt="in case" width=33% style="float:left; padding:5px" padding="5px">
-                <p> <img src="\hardware\images\pcbwatch/cad.png" alt="in case" width=33% style="float:left; padding:5px" padding="5px"></p>
-            </p>
+							<!-- Logo -->
+								<a href="index.html" class="logo">
+									<span class="symbol"><img src="images/logo.svg" alt="" /></span><span class="title">sterminare.github.io</span>
+								</a>
+
+							<!-- Nav -->
+								<nav>
+									<ul>
+										<li><a href="#menu">Menu</a></li>
+									</ul>
+								</nav>
+
+						</div>
+					</header>
+
+				<!-- Menu -->
+					<nav id="menu">
+						<h2>Menu</h2>
+						<ul>
+							<li><a href="index.html">Home</a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+							<h1>"5700 Joules" - PCB Wristwatch</h1>
+							<span class="image left"><img src="images/watch/watch.jpg" alt="" /></span>
+              <h2>how to read</h2>
+              <p>The watch has two rings of LEDs, an hour ring and a minute ring. The hour ring tells you the hour, and the minutes ring tells you the minutes in 5 minute increments. The additional 4 minute LEDs at the bottom center tell you the number of minutes past the minute ring.</p>
+              <h2>Setting the time</h2>
+              <p>Timesetting is done through a simple UI based on a hall effect sensor. Holding a magnet near the center of the face of the watch for a few seconds puts it in timesetting mode. In this mode, each ring will slowly iterate through the time. When it reaches the current hour, remove the magnet for a second and then replace it. Repeat for the 5 minute increment, and then again for the 1 minute increment.</p>
+							<span class="image right"><img src="images/watch/front.jpg" alt="" /></span>
+              <h2>Circuit design</h2>
+              <p>The schematic and PCB were designed in EasyEDA around the Attiny85 MCU. It uses two 74HC595 shift registers to control the LEDs through a matrix configuration, and uses a DS2417 RTC module for keeping accurate time, and an MCP7383 battery charging IC for charging the inbuilt 2S LiPo battery via two magnetic contacts on the back of the watch. The PCB was assembled by hand.</p>
+              <h2>case design</h2>
+              <p>The case was designed to be CNC milled from aluminum, but for now is 3D printed. It accepts standard watchbands of many different types. It houses the PCB, hall effect sensor, and a 400mAh LiPo battery and is printed in two parts, the main body and the bezel which is held on with M2 screws.</p>
+              <span class="image left"><img src="images/watch/cad.png" alt="" /></span>
+              <span class="image right"><img src="images/watch/back.jpg" alt="" /></span>
             </div>
-        
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-    <script src="script.js"></script>
-  </body>
+					</div>
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
 </html>
