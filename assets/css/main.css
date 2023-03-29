@@ -2728,6 +2728,27 @@ input, select, textarea {
 			.tiles article.watch > .image:before {
 				background-color: #3d404e;
 			}
+			.tiles article.uno > .image:before {
+				background-color: #63719d;
+			}
+			.tiles article.shield > .image:before {
+				background-color: #227c1d;
+			}
+			.tiles article.invention > .image:before {
+				background-color: #469935;
+			}
+			.tiles article.v0 > .image:before {
+				background-color: #a7a7a7;
+			}
+			.tiles article.v2 > .image:before {
+				background-color: #4f4f4f;
+			}
+			.tiles article.eggbot > .image:before {
+				background-color: #a17979;
+			}
+			.tiles article.hadley > .image:before {
+				background-color: #6b4141;
+			}
 
 			body:not(.is-touch) .tiles article:hover > .image {
 				-moz-transform: scale(1.1);
