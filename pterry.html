@@ -49,16 +49,13 @@
 							<h1>"Pterry" - FRC 2019</h1>
 							<span class="image main"><img src="images/pterry/pterry_header.png" alt="" /></span>
 							<span class="image right"><img src="images/pterry/pterry_gif_0.gif" alt="" /></span>
-							<h2>mechanical design and construction</h2>
-							<p>Goddard was made in Fusion 360 and is made of 3D printed components. The body is three plates that were printed then fastened together with steel rods as reinforcement, with the shoulders being modular and containing several bearings each.</p>
-							<p>All of the joint on the dog are supported by double bearings, the aim being to keep shear load off of the servos. The lower limb is actuated through a simple parallelogram linkage which allows the servo to be located higher up in the arm closer to the axis of rotation.</p>
+							<h2>2019 Game and Pterry's Design</h2>
+							<p>The game this year involved placing orange kick-balls into shuttles, then covering the shuttle opening with a hatch disk. The shuttle openings were at various heights, up to ~6ft off the ground.</p>
+							<p>Pterry accomplished this task by utilizing a two-stage chain driven elevator that carried 'the box', which would pick up balls from the ground in front to shoot them out the back, as well as hydraulic extending suction cups for picking up the disks. The robot utilized Mecanum wheels for maneuverability when aiming the cargo into the goals. </p>
 							<span class="image left"><img src="images/pterry/pterry_gif_2.gif" alt="" /></span>
-							<h2>electrical design</h2>
-							<p>Goddard runs on two 18650 cells in series, which are regulated through a 20A buck converter. The servos are controlled through a PCA9685 module first by an Arduino mega, and later by an ESP32 for its integrated bluetooth capabilities.</p>
-							<h2><br><br><br><br><br>lessons learned</h2>
-							<p>Primarily, the robot is simply too large for the servos used. They are not strong enough to lift the robot on the long legs that act like lever arms increasing the torque required. Goddard could stand from a lying position, but only barely, and lifting a leg to take a step would overload the supporting three servos and cause it to fall. Given that it could not stand on three legs for statically stable walking, dynamically stable walking with two legs on the ground at a time was not feasible. The next iteration would need to have significantly shorter legs if I were to use the same servo motors.</p>
-							<p>The construction of the legs, particularly the shoulders, involved a lot of parts and was finnicky and difficult to assemble. It relied often on glued connections which simply failed under the torque on the servo horns, and repeated assembly and dissasembly during the design process when parts were changing often, resulted in worn out threads that were just cut into the plastic parts. The upshot being that after a while, the screws lost holding strength and lots of the joints ended up loosening. The next iteration should use threaded inserts or captive nuts for fastening, and focus on designing larger, monolithic parts that are easier to assemble and large enough for mechanical fasteners instead of glue.</p>
-							<p>Using individual LiPo cells and managing their charging and voltage regulation took up a lot of space and was just more complicated than it needed to be. It would be much better to use premade batteries with standard connectors that could be removed and charged externally.</p>
+							<h2>The Box</h2>
+							<p>All of the robot's interaction with the game field is done with the box. It had several chain driven wheels for intake, storage and ejection of the kick-balls, and a pair of hydraulically actuated suction cup arms for manipulating the acrylic hatch panels. The main intake wheel was made of surgical tubing 'tentacles' that would suck in the ball from a wide range in front of the robot. The entire box was lifted from the ground up to ~6-7ft to reach the top cargo goals.</p>
+							<span class="image main"><img src="images/pterry/pterry_gif_1.gif" alt="" /></span>
 						</div>
 					</div>
 			</div>

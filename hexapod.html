@@ -1,67 +1,77 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
+<!--
+	Phantom by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
 <html>
-    <head>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-        <meta charset="utf-8">
-        <link rel="stylesheet" href="/main.css">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Robots - Hector</title>
-    </head>
-    <body>
-      <!-- NAVBAR BEGIN -->
-        <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #354661">
-            <div class="container">
-              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMenu">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarMenu">
-                <ul class="navbar-nav">
-                  <li><a class="nav-link active" href="/">Robots</a></li>
-                  <li><a class="nav-link" href="/projects/">Software</a></li>
-                  <li><a class="nav-link" href="/hardware/">3D Printers</a></li>
-                  <li><a class="nav-link" href="/gallery/">Gallery</a></li>
-                </ul>
-              </div>
-            </div>
-          </nav>
-        <!-- NAVBAR END -->
-        <div class="row">
-          <div class="leftcolumn">
-            <!-- <div class="card">
-              <h2>Hexapod</h2>
-              <img src="\hardware\images\hexapodCover.jpg" alt="Goddard Outside" width=70% style="float:left; padding:10px" padding="10px">
-              <p style="float:right">placeholder is a six-legged Hexapod robot controlled wirelessly by an ESP32 from an android app.</p>
-            </div> -->
-            <div class="card">
-              <h2>Hector the Hexapod</h2>   
-              <p style="float:right; text-indent:50px each-line"><img src="\hardware\images\hexapodCover.jpg" alt="Hexapod outside" width=70% style="float:left; padding:10px" padding="10px">Hector is a 12DOF, six-legged hexapod robot. It is mechanically and electronically complete, but needs to be programmed. It will be able to walk, spin in place, and detect obstacles in front of it. It will be controlled wirelessly by an android app.<br/><br/>It is made of PLA plastic parts made on my 3D printers.</br></br>
-                <a href="https://www.thingiverse.com/thing:1021540">Designed by Naus at Thingiverse</a>
-                </p> 
-            </div>
-          </div>
-          <div class="rightcolumn">
-            <div class="card">
-              <h2>Electronics and Control</h2>
-              <img src="\hardware\images\hexapodTop.jpg" alt="Hector From Above" width=100%>
-              <p>The robot will be controlled by a droidscript application on a smartphone, communicating with the ESP32 microcontroller over wifi. The ESP32 controls a PCA9685 16-channel PWM controller which powers the 12 SG90 servos. Hector also has a HC-SR04 ultrasonic sensor to see obstacles in front of it. Everything is powered by two 18650 LiPo cells that can be removed and recharged externally. The ESP32 is programmed using the Arduino IDE.</p>
-            </div>
-          </div>
-          <div class="card">
-            <h2>Some videos</h2>
-            <p>
-            <iframe width="600" height="400"
-            src="https://www.youtube.com/embed/mj_J4tXOlOQ">
-            </iframe> 
-            <iframe width="600" height="400"
-            src="https://www.youtube.com/embed/3RmjpwSMtvg">
-            </iframe> 
-            </p>
-          </div>
-        </div>
-        
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-    <script src="script.js"></script>
-  </body>
+	<head>
+		<title>Hexapod - sterminare.github.io</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<div class="inner">
+
+							<!-- Logo -->
+								<a href="index.html" class="logo">
+									<span class="symbol"><img src="images/logo.svg" alt="" /></span><span class="title">sterminare.github.io</span>
+								</a>
+
+							<!-- Nav -->
+								<nav>
+									<ul>
+										<li><a href="#menu">Menu</a></li>
+									</ul>
+								</nav>
+
+						</div>
+					</header>
+
+				<!-- Menu -->
+					<nav id="menu">
+						<h2>Menu</h2>
+						<ul>
+							<li><a href="index.html">Home</a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+							<h1>Hexapod</h1>
+							<p><span class="image"><img src="images/hexapod/hexapodCover.jpg" alt="" width="50%"/></span><H2><a href="https://www.thingiverse.com/thing:1021540">Designed by Naus at Thingiverse</a></H2></p>	
+							<span class="image left"><img src="images/hexapod/hexapodTop.jpg" alt="" /></span>
+							<h2>electrical design</h2>
+							<p>The hexapod is based on an ESP32 MCU with bluetooth control. It is powered off lithium ion cells in 2S configuration, regulated to 5V for the small servos.</p>
+								<div>
+								<h2><br><br><br><br><br><br>Some videos</h2>
+								<p>
+								<iframe width="500" height="400"
+								src="https://www.youtube.com/embed/mj_J4tXOlOQ">
+								</iframe> 
+								<iframe width="500" height="400"
+								src="https://www.youtube.com/embed/3RmjpwSMtvg">
+								</iframe> 
+								</p>
+							</div>
+						</div>
+					</div>
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
 </html>
