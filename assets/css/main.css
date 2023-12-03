@@ -170,7 +170,7 @@ input, select, textarea {
 		font-size: 2.75em;
 		font-weight: 700;
 		line-height: 1.3;
-		margin: 0 0 0.5em 0;
+		margin: 0 0 -1em 0;
 		letter-spacing: -0.035em;
 	}
 
@@ -2582,8 +2582,8 @@ input, select, textarea {
 			-ms-transition: -ms-transform 0.5s ease, opacity 0.5s ease;
 			transition: transform 0.5s ease, opacity 0.5s ease;
 			position: relative;
-			width: calc(33.33333% - 2.5em);
-			margin: 2.5em 0 0 2.5em;
+			width: calc(25% - 2.5em);
+			margin: 1em 0 0 2.5em;
 		}
 
 			.tiles article > .image {
@@ -2694,7 +2694,7 @@ input, select, textarea {
 					-webkit-transition: max-height 0.5s ease, opacity 0.5s ease;
 					-ms-transition: max-height 0.5s ease, opacity 0.5s ease;
 					transition: max-height 0.5s ease, opacity 0.5s ease;
-					width: 100%;
+					width:100%;
 					max-height: 0;
 					line-height: 1.5;
 					margin-top: 0.35em;
@@ -2706,48 +2706,48 @@ input, select, textarea {
 					}
 
 			.tiles article.clifford > .image:before {
-				background-color: #f28484;
+				background-color: #f2848490;
 			}
 
 			.tiles article.goddard > .image:before {
-				background-color: #7ecaf6;
+				background-color: #7ecaf690;
 			}
 
 			.tiles article.hexapod > .image:before {
-				background-color: #7bd0c1;
+				background-color: #7bd0c190;
 			}
 
 			.tiles article.pterry > .image:before {
-				background-color: #c5c75b;
+				background-color: #c5c75b90;
 			}
 
 			.tiles article.carry > .image:before {
-				background-color: #e6a139;
+				background-color: #e6a13990;
 			}
 
 			.tiles article.watch > .image:before {
-				background-color: #3d404e;
+				background-color: #3d404e90;
 			}
 			.tiles article.uno > .image:before {
-				background-color: #63719d;
+				background-color: #63719d90;
 			}
 			.tiles article.shield > .image:before {
-				background-color: #227c1d;
+				background-color: #227c1d90;
 			}
 			.tiles article.invention > .image:before {
-				background-color: #469935;
+				background-color: #46993590;
 			}
 			.tiles article.v0 > .image:before {
-				background-color: #a7a7a7;
+				background-color: #a7a7a790;
 			}
 			.tiles article.v2 > .image:before {
-				background-color: #4f4f4f;
+				background-color: #4f4f4f90;
 			}
 			.tiles article.eggbot > .image:before {
-				background-color: #a17979;
+				background-color: #a1797990;
 			}
 			.tiles article.hadley > .image:before {
-				background-color: #6b4141;
+				background-color: #6b414190;
 			}
 
 			body:not(.is-touch) .tiles article:hover > .image {
